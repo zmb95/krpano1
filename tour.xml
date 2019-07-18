@@ -1,0 +1,415 @@
+﻿<krpano version="1.19" title="Virtual Tour">
+
+			
+	<!-- startup action - load the first scene -->
+	<action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+		loadscene(get(startscene), null, MERGE);
+		if(startactions !== null, startactions() );
+	</action>
+	
+	<include url="plugins/gridmenu.xml" />
+
+<responsive_grid  
+
+	button="true"
+
+	padding_top="75"
+	padding_bottom="75"
+	width_margin="0"
+	
+	grid_bgcolor="0x000000"
+	grid_bgalpha="0.7"
+	
+	display_title="true"
+	grid_title="GRID MENU"
+	grid_title_css="color:#ffffff;font-family:Raleway;font-size:35px;"
+
+	group="false"
+	current="false"
+	
+	cat_container_height="35"
+	cat_container_border="0,0,1,0 0xffffff 1.00"
+	cat_container_title_css="color:#ffffff;font-family:Raleway;font-size:25px;"
+	cat_container_title_align="left"
+	
+	cat_container_border_height="1"
+
+	cat_desc_css="color:#ffffff;font-family:Raleway;font-size:14px;text-align:left"
+	
+	display_cat_desc="true"
+	
+	thumbs_crop="0|75|240|150"
+	thumbs_width="240" 
+	thumbs_height="150"
+	thumbs_padding="25"
+	thumbs_scale="100"
+	active_thumb_border="3 0xffffff 1.00"
+	
+	display_thumb_title="true"
+	
+	
+	thumb_title_align="bottom"
+	thumb_title_x="0"
+	thumb_title_y="5"
+	
+	thumb_title_css="color:#ffffff;font-family:Raleway;font-size:16px;text-align:center;"
+	
+	thumb_title_roundedge="5"
+	thumb_title_background="true"
+	thumb_title_backgroundcolor="0x000000"
+	thumb_title_backgroundalpha="0.8"
+	
+	thumb_title_border="false"
+	thumb_title_borderwidth="1"
+	thumb_title_bordercolor="0xffffff"
+	thumb_title_borderalpha="1"
+
+	thumb_title_padding="3 10"
+	
+	
+	
+	display_thumb_desc="true"
+	thumb_desc_css="color:#ffffff;font-family:Raleway;font-size:15px;text-align:center"
+	
+	thumb_desc_bg_color="0x000000"
+	thumb_desc_bg_alpha="0.6"
+	
+	thumb_desc_padding="8 15"
+	
+	loadscene_flags="MERGE"
+  	loadscene_blend="BLEND(1)"
+/>
+
+  <panoramagroup name="group1"
+                 title="Place de la Concorde"
+                 description="La place de la Concorde, avec 8,64 hectares, est la plus grande place de Paris."/>
+				 
+  <panoramagroup name="group2"
+                 title="Quartier de la défense"
+                 description="La Défense, en région parisienne, est le premier quartier d'affaires européen par l'étendue de son parc de bureaux."/>
+				 
+  <panoramagroup name="group3"
+                 title="Le Louvre"
+                 description="Le musée du Louvre est un musée d'art et d'antiquités situé au centre de Paris dans le palais du Louvre. C'est l'un des plus grands musées du monde, par sa surface d'exposition de 60 600 m², et ses collections qui comprennent près de 460 000 œuvres"/>
+				 
+  <panoramagroup name="group4"
+                 title="Notre Dame"
+                 description="La cathédrale Notre-Dame de Paris est la cathédrale de l’archidiocèse de Paris, en France. Elle est située dans l'est de l’île de la Cité, dans le 4ᵉ arrondissement de Paris."/>
+				 
+  <panoramagroup name="group5"
+                 title="Autres lieux"
+                 description="Découvrez d'autres lieux emblématiques de Paris"/>
+				 
+  <panoramagroup name="group6"
+                 title="La Tour Eiffel"
+                 description="La tour Eiffel est une tour de fer puddlé de 324 mètres de hauteur située à Paris, à l’extrémité nord-ouest du parc du Champ-de-Mars en bordure de la Seine dans le 7ᵉ arrondissement."/>
+				 
+	<scene name="scene_1" title="大厅" onstart="" thumburl="panos/1.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" fovmin="90" fovmax="140" limitview="auto" />
+
+		<preview url="panos/1.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" progressive="false">
+			<level tiledimagewidth="955" tiledimageheight="955">
+				<cube url="panos/1.tiles/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="512">
+				<cube url="panos/1.tiles/l1_%s_%v_%h.jpg" />
+			</level>
+			<mobile>
+				<cube url="panos/1.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+	</scene>
+	<scene name="scene_concorde" title="Place de la concorde" onstart="" thumburl="panos/concorde.tiles/thumb.jpg" lat="" lng="" heading=""  description="Fontaine des Fleuves" group="group1">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/concorde.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/concorde.tiles/pano_%s.jpg" />
+
+			<cube url="panos/concorde.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_concorde2" title="Place de la concorde" onstart="" thumburl="panos/concorde2.tiles/thumb.jpg" lat="" lng="" heading=""  description="Fontaine des Mers" group="group1">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/concorde2.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/concorde2.tiles/pano_%s.jpg" />
+
+			<cube url="panos/concorde2.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_defense1" title="Quartier de la défense" onstart="" thumburl="panos/defense1.tiles/thumb.jpg" lat="" lng="" heading=""  description="Bassin Takis" group="group2">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/defense1.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/defense1.tiles/pano_%s.jpg" />
+
+			<cube url="panos/defense1.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_defense2" title="Quartier de la défense" onstart="" thumburl="panos/defense2.tiles/thumb.jpg" lat="" lng="" heading=""  description="Bassin Takis" group="group2">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/defense2.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/defense2.tiles/pano_%s.jpg" />
+
+			<cube url="panos/defense2.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_defense3" title="Quartier de la défense" onstart="" thumburl="panos/defense3.tiles/thumb.jpg" lat="" lng="" heading=""  description="Esplanade" group="group2">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/defense3.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/defense3.tiles/pano_%s.jpg" />
+
+			<cube url="panos/defense3.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_defense4" title="Quartier de la défense" onstart="" thumburl="panos/defense4.tiles/thumb.jpg" lat="" lng="" heading="" description="Bassin Agam" group="group2">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/defense4.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/defense4.tiles/pano_%s.jpg" />
+
+			<cube url="panos/defense4.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_louvre1" title="Le Louvre" onstart="" thumburl="panos/louvre1.tiles/thumb.jpg" lat="" lng="" heading="" description="Vue sur la pyramide du Louvre et le Palais Royal" group="group3">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/louvre1.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/louvre1.tiles/pano_%s.jpg" />
+
+			<cube url="panos/louvre1.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_louvre2" title="Le Louvre" onstart="" thumburl="panos/louvre2.tiles/thumb.jpg" lat="" lng="" heading="" description="Vue sur la pyramide du Louvre et le Palais Royal" group="group3">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/louvre2.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/louvre2.tiles/pano_%s.jpg" />
+
+			<cube url="panos/louvre2.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_louvre3" title="Le Louvre" onstart="" thumburl="panos/louvre3.tiles/thumb.jpg" lat="" lng="" heading="" description="Vue sur la pyramide du Louvre et le Palais Royal" group="group3">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/louvre3.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/louvre3.tiles/pano_%s.jpg" />
+
+			<cube url="panos/louvre3.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_notredame" title="Notre-Dame" onstart="" thumburl="panos/notredame.tiles/thumb.jpg" lat="" lng="" description="Vue depuis le parvis" heading="" group="group4">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/notredame.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/notredame.tiles/pano_%s.jpg" />
+
+			<cube url="panos/notredame.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_notredame_quai" title="Notre-Dame" onstart="" thumburl="panos/notredame_quai.tiles/thumb.jpg" lat="" lng="" heading="" description="Vue depuis la Seine" group="group4">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/notredame_quai.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/notredame_quai.tiles/pano_%s.jpg" />
+
+			<cube url="panos/notredame_quai.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_pontneuf" title="Le Pont Neuf" onstart="" thumburl="panos/pontneuf.tiles/thumb.jpg" lat="" lng="" heading="" description="Le plus vieux pont de Paris" group="group5">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/pontneuf.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/pontneuf.tiles/pano_%s.jpg" />
+
+			<cube url="panos/pontneuf.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_solferino" title="Solferino" onstart="" thumburl="panos/solferino.tiles/thumb.jpg" lat="" lng="" heading="" description="La passerelle Léopold-Sédar-Senghor, anciennement passerelle Solférino, est un pont piéton traversant la Seine à Paris, pour relier le port de Solférino au port des Tuileries.Ce site est desservi par la station de métro Solférino." group="group5">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/solferino.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/solferino.tiles/pano_%s.jpg" />
+
+			<cube url="panos/solferino.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_tour_est" title="Tour Eiffel - Est" onstart="" thumburl="panos/tour_est.tiles/thumb.jpg" lat="" lng="" heading="" group="group6">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/tour_est.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/tour_est.tiles/pano_%s.jpg" />
+
+			<cube url="panos/tour_est.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_tour_nord" title="Tour Eiffel - Nord" onstart="" thumburl="panos/tour_nord.tiles/thumb.jpg" lat="" lng="" heading="" group="group6">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/tour_nord.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/tour_nord.tiles/pano_%s.jpg" />
+
+			<cube url="panos/tour_nord.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_tour_ouest" title="Tour Eiffel - Ouest" onstart="" thumburl="panos/tour_ouest.tiles/thumb.jpg" lat="" lng="" heading="" group="group6">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/tour_ouest.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/tour_ouest.tiles/pano_%s.jpg" />
+
+			<cube url="panos/tour_ouest.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_tour_sud" title="Tour Eiffel - Sud" onstart="" thumburl="panos/tour_sud.tiles/thumb.jpg" lat="" lng="" heading="" group="group6">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/tour_sud.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/tour_sud.tiles/pano_%s.jpg" />
+
+			<cube url="panos/tour_sud.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_vuiton" title="Fondation Louis Vuitton" onstart="" thumburl="panos/vuiton.tiles/thumb.jpg" lat="" lng="" heading="" description="www.fondationlouisvuitton.fr" group="group5">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/vuiton.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/vuiton.tiles/pano_%s.jpg" />
+
+			<cube url="panos/vuiton.tiles/mobile/pano_%s.jpg" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+
+</krpano>
